@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['admin'])) {
-    header("Location: views/login.php");
+    header("Location: login.php");
     exit();
 }
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                window.location.href = 'index.php';
+                window.location.href = '/indexs.php';
             });
         </script>";
     } else {

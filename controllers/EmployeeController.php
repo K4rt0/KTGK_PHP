@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin'])) {
-    header("Location: views/login.php");
+    header("Location: login.php");
     exit();
 }
 
@@ -35,7 +35,7 @@ class EmployeeController {
                 'Ma_Phong' => $_POST['Ma_Phong'], 'Luong' => $_POST['Luong']
             ];
             if ($this->employee->add($data)) {
-                header("Location: ../index.php?action=index");
+                header("Location: index.php?action=index");
             }
         } else {
             include 'views/add.php';
@@ -50,7 +50,7 @@ class EmployeeController {
                 'Ma_Phong' => $_POST['Ma_Phong'], 'Luong' => $_POST['Luong']
             ];
             if ($this->employee->update($data)) {
-                header("Location: ../index.php?action=index");
+                header("Location: index.php?action=index");
             }
         } else {
             $row = $this->employee->getById($_GET['id']);
@@ -61,7 +61,7 @@ class EmployeeController {
     public function delete() {
         if (isset($_GET['id'])) {
             if ($this->employee->delete($_GET['id'])) {
-                header("Location: ../index.php?action=index");
+                header("Location: index.php?action=index");
             }
         }
     }

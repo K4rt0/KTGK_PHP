@@ -4,7 +4,7 @@ include 'config/db.php';
 class AuthController {
     public function login() {
         if (isset($_SESSION['admin'])) {
-            header("Location: ../index.php?action=index");
+            header("Location: /index.php?action=index");
             exit();
         }
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,19 +15,19 @@ class AuthController {
 
             if ($username === $admin_username && $password === $admin_password) {
                 $_SESSION['admin'] = $username;
-                header("Location: ../index.php?action=index");
+                header("Location: /index.php?action=index");
             } else {
                 $error = "Sai tài khoản hoặc mật khẩu!";
-                include '../views/login.php';
+                include 'login.php';
             }
         } else {
-            include '../views/login.php';
+            include 'login.php';
         }
     }
 
     public function logout() {
         unset($_SESSION['admin']);
-        header("Location: ../views/login.php");
+        header("Location: login.php");
         exit();
     }
 }
