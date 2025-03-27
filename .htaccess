@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*\.php)$ views/$1 [L]
+RewriteRule ^logout.php$ controllers/logout.php [L]
